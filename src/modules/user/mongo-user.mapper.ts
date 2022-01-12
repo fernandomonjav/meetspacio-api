@@ -8,6 +8,8 @@ export class MongoUserMapper {
       id: binaryToUuid(persistence._id),
       name: persistence.name,
       username: persistence.username,
+      bio: persistence.bio,
+      websiteUrl: persistence.websiteUrl,
       createdAt: persistence.createdAt,
       updatedAt: persistence.updatedAt,
     })
@@ -18,6 +20,8 @@ export class MongoUserMapper {
       _id: uuidToBinary(domain.getId()),
       name: domain.getName(),
       username: domain.getUsername(),
+      bio: domain.getBio(),
+      websiteUrl: domain.getWebsiteUrl(),
       createdAt: domain.getCreatedAt(),
       updatedAt: domain.getUpdatedAt(),
     }
