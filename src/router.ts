@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express'
+import groupRouter from './modules/group/group.router'
 import userRouter from './modules/user/user.router'
 
 const router = Router()
@@ -8,6 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.use('/v1/users', userRouter)
+router.use('/v1/groups', groupRouter)
 
 router.use((error: Error, request: Request, res: Response, next: NextFunction) => {
   if (process.env.NODE_ENV !== 'production') {
