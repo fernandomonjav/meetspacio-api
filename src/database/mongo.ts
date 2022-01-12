@@ -24,5 +24,6 @@ export class Mongo {
     await this.client.connect()
 
     await this.db.collection('users').createIndex({ username: 1 }, { unique: true })
+    await this.db.collection('groups').createIndex({ username: 1 }, { unique: true })
   }
 }
