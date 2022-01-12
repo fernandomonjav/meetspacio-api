@@ -22,5 +22,7 @@ export class Mongo {
 
   async connect(): Promise<void> {
     await this.client.connect()
+
+    await this.db.collection('users').createIndex({ username: 1 }, { unique: true })
   }
 }
