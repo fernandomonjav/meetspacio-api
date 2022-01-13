@@ -25,6 +25,16 @@ export class UserService {
     return user
   }
 
+  async getUserProfile(username: string): Promise<User> {
+    const user = await this.userRepository.getUserByUsername(username)
+
+    if (!user) {
+      throw new Error('User does not exist')
+    }
+
+    return user
+  }
+
   async getUser(userId: string): Promise<User> {
     const user = await this.userRepository.getUserById(userId)
 

@@ -12,6 +12,8 @@ const userController = new UserController(userService)
 userRouter.get('/', userController.getUsers)
 userRouter.post('/', userController.createUser)
 
+userRouter.get('/profile/:username', userController.getUserProfile)
+
 userRouter.get('/:userId', userController.getUser)
 userRouter.patch('/:userId', userController.updateUser)
 userRouter.delete('/:userId', userController.deleteUser)

@@ -25,6 +25,16 @@ export class UserController {
     }
   }
 
+  getUserProfile: Handler = async (req, res, next) => {
+    try {
+      const user = await this.userService.getUserProfile(req.params.username)
+
+      res.json({ users: UserMapper.toDTO(user) })
+    } catch (error) {
+      next(error)
+    }
+  }
+
   getUser: Handler = async (req, res, next) => {
     try {
       const user = await this.userService.getUser(req.params.userId)
