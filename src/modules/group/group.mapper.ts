@@ -1,8 +1,8 @@
-import { GroupDTO } from './group.dto'
+import { GroupDto } from './group.dto'
 import { Group } from './group.entity'
 
 export class GroupMapper {
-  static toDTO(entity: Group): GroupDTO {
+  static toDto(entity: Group): GroupDto {
     return {
       id: entity.getId(),
       name: entity.getName(),

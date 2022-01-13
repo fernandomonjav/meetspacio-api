@@ -1,4 +1,4 @@
-import { CreateGroupDTO, UpdateGroupDTO } from './group.dto'
+import { CreateGroupDto, UpdateGroupDto } from './group.dto'
 import { Group } from './group.entity'
 import { GroupRepository } from './group.repository'
 
@@ -11,7 +11,7 @@ export class GroupService {
     return groups
   }
 
-  async createGroup(data: CreateGroupDTO): Promise<Group> {
+  async createGroup(data: CreateGroupDto): Promise<Group> {
     const groupExists = await this.groupRepository.getGroupByUsername(data.username)
 
     if (groupExists) {
@@ -45,7 +45,7 @@ export class GroupService {
     return group
   }
 
-  async updateGroup(groupId: string, data: UpdateGroupDTO): Promise<Group> {
+  async updateGroup(groupId: string, data: UpdateGroupDto): Promise<Group> {
     const group = await this.groupRepository.getGroupById(groupId)
 
     if (!group) {

@@ -9,7 +9,7 @@ export class GroupController {
     try {
       const groups = await this.groupService.getGroups()
 
-      res.json({ groups: groups.map((group) => GroupMapper.toDTO(group)) })
+      res.json({ groups: groups.map((group) => GroupMapper.toDto(group)) })
     } catch (error) {
       next(error)
     }
@@ -19,7 +19,7 @@ export class GroupController {
     try {
       const group = await this.groupService.createGroup(req.body)
 
-      res.json({ groups: GroupMapper.toDTO(group) })
+      res.json({ groups: GroupMapper.toDto(group) })
     } catch (error) {
       next(error)
     }
@@ -29,7 +29,7 @@ export class GroupController {
     try {
       const group = await this.groupService.getGroupProfile(req.params.username)
 
-      res.json({ group: GroupMapper.toDTO(group) })
+      res.json({ group: GroupMapper.toDto(group) })
     } catch (error) {
       next(error)
     }
@@ -39,7 +39,7 @@ export class GroupController {
     try {
       const group = await this.groupService.getGroup(req.params.groupId)
 
-      res.json({ group: GroupMapper.toDTO(group) })
+      res.json({ group: GroupMapper.toDto(group) })
     } catch (error) {
       next(error)
     }
@@ -49,7 +49,7 @@ export class GroupController {
     try {
       const group = await this.groupService.updateGroup(req.params.groupId, req.body)
 
-      res.json({ group: GroupMapper.toDTO(group) })
+      res.json({ group: GroupMapper.toDto(group) })
     } catch (error) {
       next(error)
     }
@@ -59,7 +59,7 @@ export class GroupController {
     try {
       const group = await this.groupService.deleteGroup(req.params.groupId)
 
-      res.json({ group: GroupMapper.toDTO(group) })
+      res.json({ group: GroupMapper.toDto(group) })
     } catch (error) {
       next(error)
     }

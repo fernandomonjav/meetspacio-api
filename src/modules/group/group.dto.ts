@@ -1,4 +1,4 @@
-export interface GroupDTO {
+export interface GroupDto {
   id: string
   name: string
   username: string
@@ -8,13 +8,13 @@ export interface GroupDTO {
   updatedAt: string
 }
 
-export interface CreateGroupDTO {
+export interface CreateGroupDto {
   name: string
   username: string
   description?: string
 }
 
-export interface UpdateGroupDTO {
+export interface UpdateGroupDto {
   name?: string
   username?: string
   description?: string
