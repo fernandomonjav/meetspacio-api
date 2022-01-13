@@ -25,6 +25,16 @@ export class GroupController {
     }
   }
 
+  getGroupProfile: Handler = async (req, res, next) => {
+    try {
+      const group = await this.groupService.getGroupProfile(req.params.username)
+
+      res.json({ group: GroupMapper.toDTO(group) })
+    } catch (error) {
+      next(error)
+    }
+  }
+
   getGroup: Handler = async (req, res, next) => {
     try {
       const group = await this.groupService.getGroup(req.params.groupId)

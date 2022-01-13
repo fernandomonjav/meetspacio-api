@@ -12,6 +12,8 @@ const groupController = new GroupController(groupService)
 groupRouter.get('/', groupController.getGroups)
 groupRouter.post('/', groupController.createGroup)
 
+groupRouter.get('/profile/:username', groupController.getGroupProfile)
+
 groupRouter.get('/:groupId', groupController.getGroup)
 groupRouter.patch('/:groupId', groupController.updateGroup)
 groupRouter.delete('/:groupId', groupController.deleteGroup)

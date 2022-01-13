@@ -25,6 +25,16 @@ export class GroupService {
     return group
   }
 
+  async getGroupProfile(username: string): Promise<Group> {
+    const group = await this.groupRepository.getGroupByUsername(username)
+
+    if (!group) {
+      throw new Error('Group does not exist')
+    }
+
+    return group
+  }
+
   async getGroup(groupId: string): Promise<Group> {
     const group = await this.groupRepository.getGroupById(groupId)
 
