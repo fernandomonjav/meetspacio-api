@@ -12,8 +12,8 @@ const groupController = new GroupController(groupService)
 groupRouter.get('/', groupController.getGroups)
 groupRouter.post('/', groupController.createGroup)
 
-groupRouter.get('/:username', groupController.getGroup)
-groupRouter.patch('/:username', groupController.updateGroup)
-groupRouter.delete('/:username', groupController.deleteGroup)
+groupRouter.get('/:groupId', groupController.getGroup)
+groupRouter.patch('/:groupId', groupController.updateGroup)
+groupRouter.delete('/:groupId', groupController.deleteGroup)
 
 export default groupRouter

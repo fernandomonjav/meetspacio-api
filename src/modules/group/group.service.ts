@@ -25,8 +25,8 @@ export class GroupService {
     return group
   }
 
-  async getGroup(username: string): Promise<Group> {
-    const group = await this.groupRepository.getGroupByUsername(username)
+  async getGroup(groupId: string): Promise<Group> {
+    const group = await this.groupRepository.getGroupById(groupId)
 
     if (!group) {
       throw new Error('Group does not exist')
@@ -35,15 +35,15 @@ export class GroupService {
     return group
   }
 
-  async updateGroup(username: string, data: UpdateGroupDTO): Promise<Group> {
-    const group = await this.groupRepository.getGroupByUsername(username)
+  async updateGroup(groupId: string, data: UpdateGroupDTO): Promise<Group> {
+    const group = await this.groupRepository.getGroupById(groupId)
 
     if (!group) {
       throw new Error('Group does not exist')
     }
 
     if (data.username) {
-      if (data.username !== username) {
+      if (data.username !== group.getUsername()) {
         const groupExists = await this.groupRepository.getGroupByUsername(data.username)
 
         if (groupExists) {
@@ -59,8 +59,8 @@ export class GroupService {
     return group
   }
 
-  async deleteGroup(username: string): Promise<Group> {
-    const group = await this.groupRepository.getGroupByUsername(username)
+  async deleteGroup(groupId: string): Promise<Group> {
+    const group = await this.groupRepository.getGroupById(groupId)
 
     if (!group) {
       throw new Error('Group does not exist')

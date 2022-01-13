@@ -27,7 +27,7 @@ export class GroupController {
 
   getGroup: Handler = async (req, res, next) => {
     try {
-      const group = await this.groupService.getGroup(req.params.username)
+      const group = await this.groupService.getGroup(req.params.groupId)
 
       res.json({ group: GroupMapper.toDTO(group) })
     } catch (error) {
@@ -37,7 +37,7 @@ export class GroupController {
 
   updateGroup: Handler = async (req, res, next) => {
     try {
-      const group = await this.groupService.updateGroup(req.params.username, req.body)
+      const group = await this.groupService.updateGroup(req.params.groupId, req.body)
 
       res.json({ group: GroupMapper.toDTO(group) })
     } catch (error) {
@@ -47,7 +47,7 @@ export class GroupController {
 
   deleteGroup: Handler = async (req, res, next) => {
     try {
-      const group = await this.groupService.deleteGroup(req.params.username)
+      const group = await this.groupService.deleteGroup(req.params.groupId)
 
       res.json({ group: GroupMapper.toDTO(group) })
     } catch (error) {
