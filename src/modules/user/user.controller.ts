@@ -27,7 +27,7 @@ export class UserController {
 
   getUser: Handler = async (req, res, next) => {
     try {
-      const user = await this.userService.getUser(req.params.username)
+      const user = await this.userService.getUser(req.params.userId)
 
       res.json({ user: UserMapper.toDTO(user) })
     } catch (error) {
@@ -37,7 +37,7 @@ export class UserController {
 
   updateUser: Handler = async (req, res, next) => {
     try {
-      const user = await this.userService.updateUser(req.params.username, req.body)
+      const user = await this.userService.updateUser(req.params.userId, req.body)
 
       res.json({ user: UserMapper.toDTO(user) })
     } catch (error) {
@@ -47,7 +47,7 @@ export class UserController {
 
   deleteUser: Handler = async (req, res, next) => {
     try {
-      const user = await this.userService.deleteUser(req.params.username)
+      const user = await this.userService.deleteUser(req.params.userId)
 
       res.json({ user: UserMapper.toDTO(user) })
     } catch (error) {

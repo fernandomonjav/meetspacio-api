@@ -25,8 +25,8 @@ export class UserService {
     return user
   }
 
-  async getUser(username: string): Promise<User> {
-    const user = await this.userRepository.getUserByUsername(username)
+  async getUser(userId: string): Promise<User> {
+    const user = await this.userRepository.getUserById(userId)
 
     if (!user) {
       throw new Error('User does not exist')
@@ -35,15 +35,15 @@ export class UserService {
     return user
   }
 
-  async updateUser(username: string, data: UpdateUserDTO): Promise<User> {
-    const user = await this.userRepository.getUserByUsername(username)
+  async updateUser(userId: string, data: UpdateUserDTO): Promise<User> {
+    const user = await this.userRepository.getUserById(userId)
 
     if (!user) {
       throw new Error('User does not exist')
     }
 
     if (data.username) {
-      if (data.username !== username) {
+      if (data.username !== user.getUsername()) {
         const userExists = await this.userRepository.getUserByUsername(data.username)
 
         if (userExists) {
@@ -59,8 +59,8 @@ export class UserService {
     return user
   }
 
-  async deleteUser(username: string): Promise<User> {
-    const user = await this.userRepository.getUserByUsername(username)
+  async deleteUser(userId: string): Promise<User> {
+    const user = await this.userRepository.getUserById(userId)
 
     if (!user) {
       throw new Error('User does not exist')

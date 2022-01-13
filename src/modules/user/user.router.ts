@@ -12,8 +12,8 @@ const userController = new UserController(userService)
 userRouter.get('/', userController.getUsers)
 userRouter.post('/', userController.createUser)
 
-userRouter.get('/:username', userController.getUser)
-userRouter.patch('/:username', userController.updateUser)
-userRouter.delete('/:username', userController.deleteUser)
+userRouter.get('/:userId', userController.getUser)
+userRouter.patch('/:userId', userController.updateUser)
+userRouter.delete('/:userId', userController.deleteUser)
 
 export default userRouter
