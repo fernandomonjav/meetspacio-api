@@ -1,4 +1,4 @@
-import { CreateUserDTO, UpdateUserDTO } from './user.dto'
+import { CreateUserDto, UpdateUserDto } from './user.dto'
 import { User } from './user.entity'
 import { UserRepository } from './user.repository'
 
@@ -11,7 +11,7 @@ export class UserService {
     return users
   }
 
-  async createUser(data: CreateUserDTO): Promise<User> {
+  async createUser(data: CreateUserDto): Promise<User> {
     const userExists = await this.userRepository.getUserByUsername(data.username)
 
     if (userExists) {
@@ -45,7 +45,7 @@ export class UserService {
     return user
   }
 
-  async updateUser(userId: string, data: UpdateUserDTO): Promise<User> {
+  async updateUser(userId: string, data: UpdateUserDto): Promise<User> {
     const user = await this.userRepository.getUserById(userId)
 
     if (!user) {

@@ -1,4 +1,4 @@
-export interface UserDTO {
+export interface UserDto {
   id: string
   name: string
   username: string
@@ -8,12 +8,12 @@ export interface UserDTO {
   updatedAt: string
 }
 
-export interface CreateUserDTO {
+export interface CreateUserDto {
   name: string
   username: string
 }
 
-export interface UpdateUserDTO {
+export interface UpdateUserDto {
   name?: string
   username?: string
   bio?: string

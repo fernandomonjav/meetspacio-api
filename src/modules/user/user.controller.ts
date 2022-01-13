@@ -9,7 +9,7 @@ export class UserController {
     try {
       const users = await this.userService.getUsers()
 
-      res.json({ users: users.map((user) => UserMapper.toDTO(user)) })
+      res.json({ users: users.map((user) => UserMapper.toDto(user)) })
     } catch (error) {
       next(error)
     }
@@ -19,7 +19,7 @@ export class UserController {
     try {
       const user = await this.userService.createUser(req.body)
 
-      res.json({ users: UserMapper.toDTO(user) })
+      res.json({ users: UserMapper.toDto(user) })
     } catch (error) {
       next(error)
     }
@@ -29,7 +29,7 @@ export class UserController {
     try {
       const user = await this.userService.getUserProfile(req.params.username)
 
-      res.json({ users: UserMapper.toDTO(user) })
+      res.json({ users: UserMapper.toDto(user) })
     } catch (error) {
       next(error)
     }
@@ -39,7 +39,7 @@ export class UserController {
     try {
       const user = await this.userService.getUser(req.params.userId)
 
-      res.json({ user: UserMapper.toDTO(user) })
+      res.json({ user: UserMapper.toDto(user) })
     } catch (error) {
       next(error)
     }
@@ -49,7 +49,7 @@ export class UserController {
     try {
       const user = await this.userService.updateUser(req.params.userId, req.body)
 
-      res.json({ user: UserMapper.toDTO(user) })
+      res.json({ user: UserMapper.toDto(user) })
     } catch (error) {
       next(error)
     }
@@ -59,7 +59,7 @@ export class UserController {
     try {
       const user = await this.userService.deleteUser(req.params.userId)
 
-      res.json({ user: UserMapper.toDTO(user) })
+      res.json({ user: UserMapper.toDto(user) })
     } catch (error) {
       next(error)
     }
